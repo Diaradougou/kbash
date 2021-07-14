@@ -8,10 +8,10 @@ kx is a bash environment supporting development.
 
 Functions (modify the current shell)
  add-command                Add a command to the kx environment.
- add-component              Add a new component
+ add-component              Add a new component (command scope and directory pair)
  add-function               Add a function.
  bundle                     Runs the project specific bundle
- cd                         cd /home/ewelton/Desktop/D/kbash/test/testdir/kx/[PATH] (or base w/o arg)
+ cd                         cd /home/korsimoro/K/.kbash/test/testdir/kx/[PATH] (or base w/o arg)
  deactivate                 Restores key variables to boot state
  kbash-env                  Display current environment settings.
  kbash-os                   Display os
@@ -46,10 +46,10 @@ kx add_command [help|--help|-help|-h|?] COMMAND_NAME
 Add a command to the kx environment.
 
 This will create the file
-  /home/ewelton/Desktop/D/kbash/test/testdir/kx/kbash/commands/[COMMAND_NAME].sh
+  /home/korsimoro/K/.kbash/test/testdir/kx/kbash/commands/[COMMAND_NAME].sh
 if it does not exist.  You should then edit this file to implement.
 The template file used in creation is located at
-  /home/ewelton/Desktop/D/kbash/setup/command.sh
+  /home/korsimoro/K/.kbash/setup/command.sh
 You will want to edit 3 things
  1. The oneline help summary that is used in other contexts
  2. The print_help() function, which is the detailed help
@@ -59,11 +59,19 @@ You will want to edit 3 things
 
 ### ```add-component```
 
-kx add_component [help|--help|-help|-h|?] [COMPONENT] [KXX]
+kx add_component [help|--help|-help|-h|?] [COMPONENT_ID] [KXX]
 
-Add a new component
+Add a new component (command scope and directory pair)
 
-This will set up a component.
+
+usage: add-component [COMPONENT_ID] [KXX]
+
+This will set up a component in the directory
+ - /[COMPONENT_ID]
+and will create 
+  .... more info
+
+A component
 
 
 
@@ -74,10 +82,10 @@ kx add_function [help|--help|-help|-h|?] FUNCTION_NAME
 Add a function.
 
 This will create the file
-  /home/ewelton/Desktop/D/kbash/test/testdir/kx/kbash/functions/[FUNCTION_NAME].sh
+  /home/korsimoro/K/.kbash/test/testdir/kx/kbash/functions/[FUNCTION_NAME].sh
 if it does not exist.  You should then edit this file to implement.
 The template file used in creation is located at
-  /home/ewelton/Desktop/D/kbash/setup/function.sh
+  /home/korsimoro/K/.kbash/setup/function.sh
 You will want to edit the 4 function stubs
  1. oneline_help_kx_[FUNCTION_NAME]
  2. cmdline_help_kx_[FUNCTION_NAME]
@@ -103,13 +111,13 @@ set the environment correctly.
 
 kx cd [help|--help|-help|-h|?] [PATH]
 
-cd /home/ewelton/Desktop/D/kbash/test/testdir/kx/[PATH] (or base w/o arg)
+cd /home/korsimoro/K/.kbash/test/testdir/kx/[PATH] (or base w/o arg)
 
 This is a shell function, which execute cd as follows:
-  cd /home/ewelton/Desktop/D/kbash/test/testdir/kx/[PATH].
+  cd /home/korsimoro/K/.kbash/test/testdir/kx/[PATH].
 
 If no PATH is provided, this just cds into
-  cd /home/ewelton/Desktop/D/kbash/test/testdir/kx
+  cd /home/korsimoro/K/.kbash/test/testdir/kx
 
 
 
@@ -200,7 +208,7 @@ kx reset [help|--help|-help|-h|?]
 Reload the environment.
 
 In this shell, execute:
-  /home/ewelton/Desktop/D/kbash/test/testdir/kx/activate.sh
+  /home/korsimoro/K/.kbash/test/testdir/kx/activate.sh
 
 This will cause the entire kx runtime to be reloaded,
 so any changes to functions or commands will be processed.
@@ -274,10 +282,10 @@ bash shell over a commit-trail of reference.
 
 kx is scoped by directory (or checkout) - based on the KXX
 variable.
-  KXX = /home/ewelton/Desktop/D/kbash/test/testdir/kx
+  KXX = /home/korsimoro/K/.kbash/test/testdir/kx
 
 For more information, check out this file:
-/home/ewelton/Desktop/D/kbash/test/testdir/kx/docs/bashenv.md
+/home/korsimoro/K/.kbash/test/testdir/kx/docs/bashenv.md
 
 In general use kx [cmd] help for more information.
 ```
@@ -412,10 +420,10 @@ bash shell over a commit-trail of reference.
 
 kx is scoped by directory (or checkout) - based on the KXX
 variable.
-  KXX = /home/ewelton/Desktop/D/kbash/test/testdir/kx
+  KXX = /home/korsimoro/K/.kbash/test/testdir/kx
 
 For more information, check out this file:
-/home/ewelton/Desktop/D/kbash/test/testdir/kx/docs/bashenv.md
+/home/korsimoro/K/.kbash/test/testdir/kx/docs/bashenv.md
 
 In general use kx [cmd] help for more information.
 ```
